@@ -46,7 +46,7 @@ const ServiceCard = ({ title, description, icon, index }) => {
 
         {/* Content */}
         <motion.h3 
-          className="text-xl font-semibold mb-4 text-gray-900"
+          className="text-xl font-semibold mb-4 text-gray-900 select-none"
           whileHover={{ scale: 1.02 }}
         >
           {title}
@@ -132,7 +132,7 @@ const TechnologyIcon = ({ name, icon, color }) => {
       </motion.div>
 
       <motion.span 
-        className="text-sm font-medium text-text/80 transition-colors duration-300"
+        className="text-sm font-medium text-text/80 transition-colors duration-300 select-none"
         style={{
           color: isHovered ? color : 'inherit'
         }}
@@ -304,7 +304,7 @@ const Home = () => {
         {/* Content */}
         <div className="container mx-auto px-4 text-center max-w-[90vw] sm:max-w-[85vw] md:max-w-[80vw] relative z-10">
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6 gradient-text break-words"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6 gradient-text break-words select-none"
             style={{ position: 'relative', zIndex: 20 }}
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -316,7 +316,7 @@ const Home = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-[#da9c14] max-w-[95%] sm:max-w-[85%] md:max-w-[75%] mx-auto"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-[#da9c14] max-w-[95%] sm:max-w-[85%] md:max-w-[75%] mx-auto select-none"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
@@ -351,7 +351,7 @@ const Home = () => {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
           <motion.h2 
-            className="text-4xl font-bold mb-16 text-center gradient-text"
+            className="text-4xl font-bold mb-16 text-center gradient-text select-none"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -391,7 +391,7 @@ const Home = () => {
       <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
-            className="text-4xl font-bold mb-16 text-center gradient-text"
+            className="text-4xl font-bold mb-16 text-center gradient-text select-none"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

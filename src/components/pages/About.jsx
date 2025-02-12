@@ -42,14 +42,14 @@ const About = () => {
         {/* Content */}
         <div className="container mx-auto px-4 z-10">
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6 gradient-text"
+            className="text-5xl md:text-7xl font-bold mb-6 gradient-text select-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
             {t('about.title')}
           </motion.h1>
           <motion.p 
-            className="text-xl text-text/80 max-w-2xl"
+            className="text-xl text-text/80 max-w-2xl select-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -92,7 +92,7 @@ const About = () => {
                     <i className="fas fa-eye text-2xl text-white"></i>
                   </motion.div>
                 </motion.div>
-                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent select-none">
                   {t('about.vision.title')}
                 </h2>
                 <p className="text-text/80 leading-relaxed">
@@ -129,7 +129,7 @@ const About = () => {
                     <i className="fas fa-rocket text-2xl text-white transform rotate-45"></i>
                   </motion.div>
                 </div>
-                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent select-none">
                   {t('about.mission.title')}
                 </h2>
                 <p className="text-text/80 leading-relaxed">
@@ -145,7 +145,7 @@ const About = () => {
       <section className="py-20 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent select-none"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -176,10 +176,10 @@ const About = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-xl font-bold text-white mb-1">
+                      <h3 className="text-xl font-bold text-white mb-1 select-none">
                         {member.name}
                       </h3>
-                      <p className="text-white/80">
+                      <p className="text-white/80 select-none">
                         {member.position}
                       </p>
                       <div className="flex gap-4 mt-4">

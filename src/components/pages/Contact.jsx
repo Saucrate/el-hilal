@@ -103,14 +103,14 @@ const Contact = () => {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 gradient-text"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 gradient-text select-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
             {t('contact.title')}
           </motion.h1>
           <motion.p 
-            className="text-base sm:text-lg md:text-xl text-text/80 max-w-2xl"
+            className="text-base sm:text-lg md:text-xl text-text/80 max-w-2xl select-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -134,7 +134,7 @@ const Contact = () => {
             >
               <i className="fab fa-whatsapp text-2xl"></i>
               WhatsApp
-              <span className="text-sm opacity-80">+222 27 58 27 50</span>
+              <span className="text-sm opacity-80 select-none">+222 27 58 27 50</span>
             </motion.button>
 
             {/* Email Button */}
@@ -147,7 +147,7 @@ const Contact = () => {
             >
               <i className="fas fa-envelope text-2xl"></i>
               Email
-              <span className="text-sm opacity-80">23039@supnum.mr</span>
+              <span className="text-sm opacity-80 select-none">23039@supnum.mr</span>
             </motion.button>
           </div>
         </div>

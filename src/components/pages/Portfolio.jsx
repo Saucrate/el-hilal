@@ -48,7 +48,7 @@ const ProjectCard = ({ project, index }) => {
                 className="space-y-4"
               >
                 {/* Title with animated underline */}
-                <h3 className="text-3xl font-bold text-white relative inline-block">
+                <h3 className="text-3xl font-bold text-white relative inline-block select-none">
                   {project.title}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-700" />
                 </h3>
@@ -67,7 +67,7 @@ const ProjectCard = ({ project, index }) => {
                       whileHover={{ scale: 1.1 }}
                       whileInView={{ scale: 1 }}
                       transition={{ delay: i * 0.1 }}
-                      className="px-4 py-2 text-sm bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:border-primary hover:bg-primary/20 transition-all duration-300"
+                      className="px-4 py-2 text-sm bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:border-primary hover:bg-primary/20 transition-all duration-300 select-none"
                     >
                       {tech}
                     </motion.span>
@@ -160,14 +160,14 @@ const Portfolio = () => {
         
         <div className="container mx-auto px-4 z-10">
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6 gradient-text"
+            className="text-5xl md:text-7xl font-bold mb-6 gradient-text select-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
             {t('portfolio.title')}
           </motion.h1>
           <motion.p 
-            className="text-xl text-text/80 max-w-2xl"
+            className="text-xl text-text/80 max-w-2xl select-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}

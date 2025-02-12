@@ -45,7 +45,7 @@ const ServiceCard = ({ title, description, icon, index }) => {
 
         {/* Content */}
         <motion.h3 
-          className="text-xl font-semibold mb-4 text-gray-900"
+          className="text-xl font-semibold mb-4 text-gray-900 select-none"
           whileHover={{ scale: 1.02 }}
         >
           {title}
@@ -152,12 +152,12 @@ const Services = () => {
         {/* Content */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10 max-w-[90vw] sm:max-w-[85vw] md:max-w-[80vw]">
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 gradient-text break-words"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 gradient-text break-words select-none"
           >
             {t('services.title')}
           </motion.h1>
           <motion.p 
-            className="text-base sm:text-lg md:text-xl text-text/80 max-w-2xl break-words"
+            className="text-base sm:text-lg md:text-xl text-text/80 max-w-2xl break-words select-none"
           >
             {t('services.subtitle')}
           </motion.p>

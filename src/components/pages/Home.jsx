@@ -257,6 +257,18 @@ const Home = () => {
     { name: "Python", icon: "/icons/python.svg", color: "#3776AB" },
   ];
 
+  // Add ref for services section
+  const servicesRef = useRef(null);
+
+  // Add smooth scroll function
+  const scrollToServices = (e) => {
+    e.preventDefault();
+    servicesRef.current?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
   return (
     <div className="relative overflow-x-hidden">
       {/* Hero Section */}
@@ -321,18 +333,22 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             key="hero-cta"
           >
-            <a 
-              href="#services" 
+            <button 
+              onClick={scrollToServices}
               className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full text-lg font-medium transition-colors"
             >
               {t('hero.cta')}
-            </a>
+            </button>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Preview Section */}
-      <section className="py-12 sm:py-16 md:py-20 overflow-hidden">
+      {/* Services Preview Section - Add ref here */}
+      <section 
+        ref={servicesRef} 
+        id="services"
+        className="py-12 sm:py-16 md:py-20 overflow-hidden"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
           <motion.h2 
             className="text-4xl font-bold mb-16 text-center gradient-text"

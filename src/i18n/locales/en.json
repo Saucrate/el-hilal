@@ -1,0 +1,112 @@
+{
+  "hero": {
+    "title": "Innovative Digital Solutions",
+    "subtitle": "We create cutting-edge web and mobile applications that transform businesses",
+    "cta": "Explore Our Services"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "services": {
+    "title": "Services We Offer",
+    "subtitle": "Comprehensive digital solutions for your business needs",
+    "web": {
+      "title": "Web Development",
+      "description": "Custom websites and web applications built with the latest technologies"
+    },
+    "mobile": {
+      "title": "Mobile Development",
+      "description": "Native and cross-platform mobile apps for iOS and Android"
+    },
+    "ai": {
+      "title": "AI Solutions",
+      "description": "Intelligent systems and machine learning solutions for your business"
+    },
+    "technologies": {
+      "title": "Technologies We Use",
+      "description": "Cutting-edge tools and frameworks that power our solutions"
+    }
+  },
+  "about": {
+    "title": "About El-Hilal",
+    "subtitle": "Building the future of digital technology",
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the leading technology partner for businesses worldwide, delivering innovative solutions that drive digital transformation."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To provide cutting-edge technology solutions that empower businesses to thrive in the digital age."
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "members": {
+        "0": {
+          "name": "Mohamdy Isselmou Dahmed",
+          "position": "CEO & Founder",
+          "bio": "Tech visionary with extensive experience in software development"
+        },
+        "1": {
+          "name": "Oussama Taleb Bahan",
+          "position": "Lead Developer",
+          "bio": "Full-stack expert specializing in modern web technologies"
+        },
+        "2": {
+          "name": "Didi Msaboue",
+          "position": "Technical Lead",
+          "bio": "Expert in system architecture and cloud solutions"
+        },
+        "3": {
+          "name": "Ahmed Ould Chorfa",
+          "position": "Senior Developer",
+          "bio": "Specialized in mobile and cross-platform development"
+        }
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "subtitle": "Showcasing our best work and innovations",
+    "projects": {
+      "0": {
+        "title": "E-commerce Platform",
+        "description": "A modern e-commerce solution with advanced features"
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's discuss your next project",
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message"
+    },
+    "info": {
+      "title": "Contact Information"
+    },
+    "whatsapp": "Chat on WhatsApp",
+    "social": {
+      "title": "Follow Us"
+    }
+  },
+  "footer": {
+    "description": "El-Hilal is a leading technology company specializing in web development, mobile applications, and AI solutions.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact Us",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "viewAllServices": "View all services",
+    "viewAllTech": "View all technologies"
+  },
+  "technologies": {
+    "title": "Technologies"
+  }
+} 

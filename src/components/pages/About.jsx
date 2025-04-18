@@ -141,7 +141,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section
       <section className="py-20 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.h2 
@@ -197,7 +197,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header text-center">
+    <div class="container">
+        <h1 class="display-4 animate__animated animate__fadeInDown">{{ enseignant.prenom }} {{ enseignant.nom }}</h1>
+        <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Profil de l'enseignant</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg mb-4">
+                <div class="card-body p-5">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center">
+                            {% if enseignant.image %}
+                                <img src="{{ url_for('static', filename='uploads/' + enseignant.image) }}" 
+                                     alt="{{ enseignant.prenom }} {{ enseignant.nom }}" 
+                                     class="img-fluid rounded-circle mb-3"
+                                     style="width: 200px; height: 200px; object-fit: cover;">
+                            {% else %}
+                                <div class="icon-circle mb-3">
+                                    <i class="fas fa-user fa-3x"></i>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <h2 class="card-title mb-3">{{ enseignant.prenom }} {{ enseignant.nom }}</h2>
+                            <p class="mb-2">
+                                <i class="fas fa-envelope me-2"></i>
+                                <strong>Email:</strong> {{ enseignant.email }}
+                            </p>
+                            <p class="mb-2">
+                                <i class="fas fa-book me-2"></i>
+                                <strong>Matière:</strong> {{ enseignant.matiere.nom }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .icon-circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .icon-circle i {
+        color: white;
+    }
+
+    .btn-outline-secondary {
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 0.8rem 1.5rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #f8f9fa;
+        transform: translateY(-2px);
+    }
+</style>
+{% endblock %} 

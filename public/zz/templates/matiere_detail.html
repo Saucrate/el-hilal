@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header text-center">
+    <div class="container">
+        <h1 class="display-4 animate__animated animate__fadeInDown">{{ matiere.nom }}</h1>
+        <p class="lead animate__animated animate__fadeInUp animate__delay-1s">{{ matiere.description }}</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex align-items-center">
+                            {% if matiere.image %}
+                                <img src="{{ url_for('static', filename='uploads/matieres/' + matiere.image) }}" 
+                                     alt="{{ matiere.nom }}" 
+                                     class="img-fluid rounded-circle me-3"
+                                     style="width: 50px; height: 50px; object-fit: cover;">
+                            {% else %}
+                                <div class="icon-circle bg-primary text-white me-3">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                            {% endif %}
+                            <h5 class="card-title mb-0">Description de la matière</h5>
+                        </div>
+                        {% if current_user.is_authenticated %}
+                        <div class="btn-group">
+                            <a href="{{ url_for('modifier_matiere', id=matiere.id) }}" class="btn btn-outline-primary" title="Modifier">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <form method="POST" action="{{ url_for('supprimer_matiere', id=matiere.id) }}" class="d-inline">
+                                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette matière ?')" title="Supprimer">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <p class="card-text">{{ matiere.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="mb-0">
+                    <i class="fas fa-chalkboard-teacher me-2"></i>Enseignants
+                </h2>
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('ajouter_enseignant') }}" class="btn btn-primary">
+                    <i class="fas fa-user-plus me-2"></i>Ajouter un enseignant
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for enseignant in enseignants %}
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        {% if enseignant.image %}
+                            <img src="{{ url_for('static', filename='uploads/enseignants/' + enseignant.image) }}" 
+                                 alt="{{ enseignant.prenom }} {{ enseignant.nom }}" 
+                                 class="img-fluid rounded-circle mb-3"
+                                 style="width: 150px; height: 150px; object-fit: cover;">
+                        {% else %}
+                            <div class="icon-circle bg-primary text-white mx-auto mb-3" style="width: 150px; height: 150px;">
+                                <i class="fas fa-user-tie fa-3x"></i>
+                            </div>
+                        {% endif %}
+                        <h5 class="card-title">{{ enseignant.prenom }} {{ enseignant.nom }}</h5>
+                    </div>
+                    <div class="teacher-info">
+                        <p class="mb-2">
+                            <i class="fas fa-envelope me-2 text-primary"></i>
+                            <a href="mailto:{{ enseignant.email }}" class="text-decoration-none">{{ enseignant.email }}</a>
+                        </p>
+                        {% if current_user.is_authenticated %}
+                        <div class="btn-group w-100 mt-3">
+                            <a href="{{ url_for('modifier_enseignant', id=enseignant.id) }}" class="btn btn-outline-primary" title="Modifier">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <form method="POST" action="{{ url_for('supprimer_enseignant', id=enseignant.id) }}" class="d-inline">
+                                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enseignant ?')" title="Supprimer">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center py-5">
+                    <div class="icon-circle bg-primary text-white mx-auto mb-3" style="width: 150px; height: 150px;">
+                        <i class="fas fa-user-tie fa-3x"></i>
+                    </div>
+                    <h5 class="card-title">Aucun enseignant assigné</h5>
+                    <p class="text-muted">Aucun enseignant n'est actuellement assigné à cette matière</p>
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('ajouter_enseignant') }}" class="btn btn-primary">
+                        <i class="fas fa-user-plus me-2"></i>Ajouter un enseignant
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Retour à l'accueil
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .icon-circle {
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    }
+
+    .card {
+        border: none;
+        background: white;
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .teacher-info {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
+
+    .btn-outline-secondary {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .btn-outline-primary, .btn-outline-danger {
+        border-width: 2px;
+        font-weight: 500;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .btn-outline-primary:hover, .btn-outline-danger:hover {
+        transform: translateY(-2px);
+    }
+
+    .btn-group .btn {
+        border-radius: 0;
+    }
+
+    .btn-group .btn:first-child {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+
+    .btn-group .btn:last-child {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+</style>
+{% endblock %} 

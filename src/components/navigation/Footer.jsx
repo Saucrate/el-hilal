@@ -167,11 +167,11 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="text-gray-400">
                 <i className="fas fa-phone mr-2"></i>
-                +22227582750
+                +222 42900600
               </li>
               <li className="text-gray-400">
                 <i className="fas fa-envelope mr-2"></i>
-                contact@el-hilal.com
+                info@elhilal-dev.com
               </li>
             </ul>
           </div>

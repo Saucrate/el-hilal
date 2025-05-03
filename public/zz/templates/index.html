@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header text-center">
+    <div class="container">
+        <h1 class="display-4 animate__animated animate__fadeInDown">Matières Scolaires</h1>
+        <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Découvrez les matières enseignées dans notre établissement</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for matiere in matieres %}
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        {% if matiere.image %}
+                            <img src="{{ url_for('static', filename='uploads/matieres/' + matiere.image) }}" 
+                                 alt="{{ matiere.nom }}" 
+                                 class="img-fluid rounded-circle mb-3"
+                                 style="width: 150px; height: 150px; object-fit: cover;">
+                        {% else %}
+                            <div class="icon-circle bg-primary text-white mx-auto mb-3" style="width: 150px; height: 150px;">
+                                <i class="fas fa-book-open fa-3x"></i>
+                            </div>
+                        {% endif %}
+                        <h5 class="card-title">{{ matiere.nom }}</h5>
+                    </div>
+                    <p class="card-text text-muted">{{ matiere.description }}</p>
+                    <a href="{{ url_for('matiere_detail', id=matiere.id) }}" class="btn btn-primary w-100">
+                        <i class="fas fa-users me-2"></i>Voir les enseignants
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center py-5">
+                    <i class="fas fa-book fa-3x text-muted mb-3"></i>
+                    <h5 class="card-title">Aucune matière disponible</h5>
+                    <p class="text-muted">Commencez par ajouter des matières à votre système</p>
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('ajouter_matiere') }}" class="btn btn-primary">
+                        <i class="fas fa-plus-circle me-2"></i>Ajouter une matière
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .icon-circle {
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    }
+
+    .card {
+        border: none;
+        background: white;
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
+</style>
+{% endblock %} 

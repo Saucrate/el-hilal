@@ -58,11 +58,11 @@ const Contact = () => {
   const { t } = useTranslation();
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/22227582750`, '_blank');
+    window.open(`https://wa.me/22242900600`, '_blank');
   };
 
   const handleEmail = () => {
-    window.open(`mailto:23039@supnum.mr`, '_blank');
+    window.open(`mailto:info@elhilal-dev.com`, '_blank');
   };
 
   return (
@@ -134,7 +134,7 @@ const Contact = () => {
             >
               <i className="fab fa-whatsapp text-2xl"></i>
               WhatsApp
-              <span className="text-sm opacity-80 select-none">+222 27 58 27 50</span>
+              <span className="text-sm opacity-80 select-none">+222 42900600</span>
             </motion.button>
 
             {/* Email Button */}
@@ -147,7 +147,7 @@ const Contact = () => {
             >
               <i className="fas fa-envelope text-2xl"></i>
               Email
-              <span className="text-sm opacity-80 select-none">23039@supnum.mr</span>
+              <span className="text-sm opacity-80 select-none">info@elhilal-dev.com</span>
             </motion.button>
           </div>
         </div>

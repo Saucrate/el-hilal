@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header text-center">
+    <div class="container">
+        <h1 class="display-4 animate__animated animate__fadeInDown">Modifier l'Enseignant</h1>
+        <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Modifiez les informations de l'enseignant</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <div class="mb-4">
+                            <label for="nom" class="form-label">
+                                <i class="fas fa-user me-2"></i>Nom
+                            </label>
+                            <input type="text" class="form-control" id="nom" name="nom" value="{{ enseignant.nom }}" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="prenom" class="form-label">
+                                <i class="fas fa-user me-2"></i>Prénom
+                            </label>
+                            <input type="text" class="form-control" id="prenom" name="prenom" value="{{ enseignant.prenom }}" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="form-label">
+                                <i class="fas fa-envelope me-2"></i>Email
+                            </label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ enseignant.email }}" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="matiere_id" class="form-label">
+                                <i class="fas fa-book me-2"></i>Matière
+                            </label>
+                            <select class="form-select" id="matiere_id" name="matiere_id" required>
+                                {% for matiere in matieres %}
+                                    <option value="{{ matiere.id }}" {% if matiere.id == enseignant.matiere_id %}selected{% endif %}>
+                                        {{ matiere.nom }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="image" class="form-label">
+                                <i class="fas fa-image me-2"></i>Photo
+                            </label>
+                            {% if enseignant.image %}
+                                <div class="mb-3">
+                                    <img src="{{ url_for('static', filename='uploads/enseignants/' + enseignant.image) }}" 
+                                         alt="{{ enseignant.prenom }} {{ enseignant.nom }}" 
+                                         class="img-fluid rounded-circle"
+                                         style="width: 150px; height: 150px; object-fit: cover;">
+                                </div>
+                            {% endif %}
+                            <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                            <small class="text-muted">Format: JPG, PNG, GIF. Taille max: 16MB</small>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Enregistrer les modifications
+                            </button>
+                            <a href="{{ url_for('matiere_detail', id=enseignant.matiere_id) }}" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Retour
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

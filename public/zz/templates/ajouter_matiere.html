@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header text-center">
+    <div class="container">
+        <h1 class="display-4 animate__animated animate__fadeInDown">Ajouter une Matière</h1>
+        <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Créez une nouvelle matière scolaire</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <div class="mb-4">
+                            <label for="nom" class="form-label">
+                                <i class="fas fa-book me-2"></i>Nom de la Matière
+                            </label>
+                            <input type="text" class="form-control" id="nom" name="nom" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="description" class="form-label">
+                                <i class="fas fa-align-left me-2"></i>Description
+                            </label>
+                            <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="image" class="form-label">
+                                <i class="fas fa-image me-2"></i>Image de la Matière
+                            </label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                            </div>
+                            <small class="text-muted">Formats acceptés: JPG, PNG, GIF. Taille maximale: 16MB</small>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-plus-circle me-2"></i>Ajouter la Matière
+                            </button>
+                            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Retour à l'accueil
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-control {
+        border-radius: 8px;
+        padding: 0.8rem 1rem;
+        border: 2px solid #e0e0e0;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    }
+
+    .form-label {
+        font-weight: 500;
+        color: var(--primary-color);
+    }
+
+    .card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
+</style>
+{% endblock %} 

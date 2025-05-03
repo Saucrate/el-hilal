@@ -114,8 +114,8 @@ const Portfolio = () => {
     {
       title: t('portfolio.projects.0.title'),
       description: t('portfolio.projects.0.description'),
-      image: '/projects/project1.jpg',
-      technologies: ['React', 'Node.js', 'MongoDB'],
+      image: '/Toura4i.jpg',
+      technologies: ['React Native', 'React JS', 'Cloudinary', 'Express', 'Tailwind', 'Node.js', 'MongoDB'],
       link: 'https://bakapp.com'
     },
     // Add more projects here

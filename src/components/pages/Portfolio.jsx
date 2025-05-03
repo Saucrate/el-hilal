@@ -7,11 +7,7 @@ import { useState } from 'react';
 
 const ProjectCard = ({ project, index }) => {
   const { t } = useTranslation();
-  const [isInfoVisible, setIsInfoVisible] = useState(false);
-
-  const toggleInfo = () => {
-    setIsInfoVisible(!isInfoVisible);
-  };
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
     <motion.div
@@ -20,7 +16,11 @@ const ProjectCard = ({ project, index }) => {
       viewport={{ once: true }}
       transition={{ delay: index * 0.2 }}
       className="group relative h-[400px] rounded-2xl overflow-hidden transform-gpu hover:scale-[1.02] transition-all duration-700 ease-out"
-      onClick={toggleInfo}
+      onClick={() => {
+        if (window.innerWidth <= 768) {
+          setIsMobileOpen(!isMobileOpen);
+        }
+      }}
     >
       {/* Background Glow Effect */}
       <div className="absolute -inset-1 bg-gradient-to-r from-primary via-blue-500 to-purple-600 rounded-2xl blur-2xl group-hover:opacity-75 opacity-0 transition duration-700" />
@@ -41,20 +41,20 @@ const ProjectCard = ({ project, index }) => {
           
           {/* Animated Overlay */}
           <motion.div 
-            className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
+            className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-all duration-700"
             initial={{ opacity: 0, y: 100 }}
             whileHover={{ opacity: 1, y: 0 }}
+            animate={isMobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
             transition={{ duration: 0.5 }}
-            style={{ opacity: isInfoVisible ? 1 : 0, y: isInfoVisible ? 0 : 100 }}
           >
             {/* Project Info */}
             <div className="absolute bottom-0 left-0 right-0 p-8">
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 whileHover={{ y: 0, opacity: 1 }}
+                animate={isMobileOpen ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="space-y-4"
-                style={{ y: isInfoVisible ? 0 : 20, opacity: isInfoVisible ? 1 : 0 }}
               >
                 {/* Title with animated underline */}
                 <h3 className="text-3xl font-bold text-white relative inline-block select-none">

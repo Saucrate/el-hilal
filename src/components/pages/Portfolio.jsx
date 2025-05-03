@@ -3,9 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Torus } from '@react-three/drei';
 import { Stars } from '@react-three/drei';
+import { useState } from 'react';
 
 const ProjectCard = ({ project, index }) => {
   const { t } = useTranslation();
+  const [isInfoVisible, setIsInfoVisible] = useState(false);
+
+  const toggleInfo = () => {
+    setIsInfoVisible(!isInfoVisible);
+  };
 
   return (
     <motion.div
@@ -14,6 +20,7 @@ const ProjectCard = ({ project, index }) => {
       viewport={{ once: true }}
       transition={{ delay: index * 0.2 }}
       className="group relative h-[400px] rounded-2xl overflow-hidden transform-gpu hover:scale-[1.02] transition-all duration-700 ease-out"
+      onClick={toggleInfo}
     >
       {/* Background Glow Effect */}
       <div className="absolute -inset-1 bg-gradient-to-r from-primary via-blue-500 to-purple-600 rounded-2xl blur-2xl group-hover:opacity-75 opacity-0 transition duration-700" />
@@ -38,6 +45,7 @@ const ProjectCard = ({ project, index }) => {
             initial={{ opacity: 0, y: 100 }}
             whileHover={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            style={{ opacity: isInfoVisible ? 1 : 0, y: isInfoVisible ? 0 : 100 }}
           >
             {/* Project Info */}
             <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -46,6 +54,7 @@ const ProjectCard = ({ project, index }) => {
                 whileHover={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="space-y-4"
+                style={{ y: isInfoVisible ? 0 : 20, opacity: isInfoVisible ? 1 : 0 }}
               >
                 {/* Title with animated underline */}
                 <h3 className="text-3xl font-bold text-white relative inline-block select-none">
